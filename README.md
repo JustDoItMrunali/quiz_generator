@@ -1,46 +1,171 @@
-# Getting Started with Create React App
+# Quiz Master - AI-Powered Quiz App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive quiz application built with React, TypeScript, and powered by Google Gemini AI. Create and take quizzes on any topic with dynamic question generation, real-time timing, and detailed performance analytics.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- 🧠 **AI-Powered Questions**: Generate quiz questions dynamically using Google Gemini AI
+- ⏱️ **Real-time Timer**: Countdown timer with auto-submission when time runs out
+- 📊 **Performance Analytics**: Detailed results with charts and visualizations
+- 📱 **Responsive Design**: Works seamlessly on desktop and mobile devices
+- 🎨 **Modern UI**: Beautiful interface built with Tailwind CSS and Lucide icons
+- 🔄 **Question Navigation**: Navigate between questions with progress tracking
+- 📈 **Visual Charts**: Pie charts and bar charts for performance analysis
+- 🎯 **Score Tracking**: Real-time score calculation and performance feedback
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Frontend**: React 18 with TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Charts**: Recharts
+- **Routing**: React Router DOM
+- **AI Integration**: Google Gemini AI
+- **State Management**: React Context API
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (version 16 or higher)
+- npm or yarn package manager
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository or navigate to the project directory:
+   ```bash
+   cd quiz-app
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-### `npm run eject`
+4. Open your browser and navigate to `http://localhost:3000`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Environment Setup
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The app uses a pre-configured Gemini API key. If you need to use your own API key:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Get your API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Update the `API_KEY` constant in `src/services/geminiApi.ts`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Usage
 
-## Learn More
+### Creating a Quiz
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Enter Quiz Topic**: Type any topic you want to be quizzed on (e.g., "JavaScript", "AI Ethics", "World History")
+2. **Select Number of Questions**: Choose from 5, 10, 15, or 20 questions
+3. **Set Duration**: Choose quiz duration from 5 to 30 minutes
+4. **Generate Quiz**: Click "Start Quiz" to generate questions using AI
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Taking the Quiz
+
+- **Navigation**: Use Previous/Next buttons or click question numbers to navigate
+- **Timer**: Watch the countdown timer - quiz auto-submits when time runs out
+- **Progress**: Track your progress with the visual progress bar
+- **Answers**: Select your answer by clicking on the option
+
+### Viewing Results
+
+- **Score Overview**: See your percentage score and performance message
+- **Charts**: View pie chart of correct vs incorrect answers and bar chart of question-by-question performance
+- **Question Review**: Review all questions with correct answers and explanations
+- **Actions**: Take a new quiz, review answers, or return home
+
+## Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── HomePage.tsx    # Quiz configuration page
+│   ├── QuizPage.tsx    # Quiz taking interface
+│   └── ResultPage.tsx  # Results and analytics page
+├── context/            # React context for state management
+│   └── QuizContext.tsx # Quiz state and actions
+├── services/           # API services
+│   └── geminiApi.ts    # Gemini AI integration
+├── types/              # TypeScript type definitions
+│   └── quiz.ts         # Quiz-related interfaces
+└── App.tsx             # Main application component
+```
+
+## Key Features Explained
+
+### AI Question Generation
+- Uses Google Gemini AI to generate contextually relevant questions
+- Questions include explanations for correct answers
+- Supports any topic or subject matter
+
+### Timer System
+- Real-time countdown with visual indicators
+- Color-coded timer (green → yellow → red as time runs out)
+- Automatic quiz submission when time expires
+
+### Performance Analytics
+- **Pie Chart**: Shows overall correct vs incorrect answers
+- **Bar Chart**: Displays performance for each individual question
+- **Score Breakdown**: Detailed statistics and performance metrics
+
+### Responsive Design
+- Mobile-first approach with Tailwind CSS
+- Adaptive layouts for different screen sizes
+- Touch-friendly interface elements
+
+## Customization
+
+### Styling
+- Modify `tailwind.config.js` to customize colors and theme
+- Update component styles in individual component files
+- Add custom CSS classes in `src/index.css`
+
+### Question Generation
+- Modify the prompt in `src/services/geminiApi.ts` to change question format
+- Adjust difficulty levels or question types
+- Add support for different question formats
+
+### Features
+- Add user authentication and score history
+- Implement quiz sharing functionality
+- Add support for image-based questions
+- Create quiz categories and difficulty levels
+
+## Troubleshooting
+
+### Common Issues
+
+1. **API Key Error**: Ensure the Gemini API key is valid and has proper permissions
+2. **Question Generation Fails**: Check internet connection and API quota limits
+3. **Timer Issues**: Refresh the page if timer behaves unexpectedly
+4. **Styling Issues**: Ensure Tailwind CSS is properly configured
+
+### Development
+
+- Run tests: `npm test`
+- Build for production: `npm run build`
+- Eject from Create React App: `npm run eject` (irreversible)
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Acknowledgments
+
+- Google Gemini AI for question generation
+- Recharts for data visualization
+- Lucide for beautiful icons
+- Tailwind CSS for styling framework
